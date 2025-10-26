@@ -3,8 +3,8 @@ import fs from "node:fs/promises";
 
 const rename = async () => {
   const filesDirPath = path.join(import.meta.dirname, "files");
-  const wrongFilenamePath = `${filesDirPath}/wrongFilename.txt`;
-  const properFilenamePath = `${filesDirPath}/properFilename.md`;
+  const wrongFilenamePath = path.join(filesDirPath, "wrongFilename.txt");
+  const properFilenamePath = path.join(filesDirPath, "properFilename.md");
 
   // If the file dest file (`properFilename.md`) exists throw an error
   try {
