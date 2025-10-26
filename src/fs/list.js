@@ -1,9 +1,8 @@
-import path from "node:path";
 import fs from "node:fs/promises";
+import { FS_ERROR_MESSAGE, getFilesDirPath } from "./fs-helper.js";
 
 const list = async () => {
-  // Write your code here
-  const filesDirPath = path.join(import.meta.dirname, "files");
+  const filesDirPath = getFilesDirPath();
 
   try {
     const dirContent = await fs.readdir(filesDirPath, {
@@ -11,7 +10,7 @@ const list = async () => {
     });
     console.log(dirContent);
   } catch {
-    throw new Error("FS operation failed");
+    throw new Error(FS_ERROR_MESSAGE);
   }
 };
 
